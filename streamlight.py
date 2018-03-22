@@ -62,9 +62,10 @@ def load_start_url_cb():
     
     is_streaming = curStream
     is_recording = curRec
-
-    #obs.script_log(obs.LOG_WARNING, "Streaming? "+str(is_streaming)+" Recording? "+str(is_recording))
-    #obs.script_log(obs.LOG_WARNING, "Streaming enabled? "+str(enable_stream)+" Recording Enabled? "+str(enable_rec))
+    
+    obs.script_log(obs.LOG_DEBUG, "Got 'Start' Signal")
+    obs.script_log(obs.LOG_DEBUG, "Streaming? "+str(is_streaming)+" Recording? "+str(is_recording))
+    obs.script_log(obs.LOG_DEBUG, "Streaming enabled? "+str(enable_stream)+" Recording Enabled? "+str(enable_rec))
 
     if (is_streaming and enable_stream) or (is_recording and enable_rec):
         load_start_url()
@@ -75,9 +76,11 @@ def load_stop_url_cb():
     
     is_streaming = curStream
     is_recording = curRec
-    
-    #obs.script_log(obs.LOG_WARNING, "Streaming? "+str(is_streaming)+" Recording? "+str(is_recording))
-    #obs.script_log(obs.LOG_WARNING, "Streaming enabled? "+str(enable_stream)+" Recording Enabled? "+str(enable_rec))
+
+    obs.script_log(obs.LOG_DEBUG, "Got 'Stop' Signal")
+
+    obs.script_log(obs.LOG_DEBUG, "Streaming? "+str(is_streaming)+" Recording? "+str(is_recording))
+    obs.script_log(obs.LOG_DEBUG, "Streaming enabled? "+str(enable_stream)+" Recording Enabled? "+str(enable_rec))
 
     disable = True
 
