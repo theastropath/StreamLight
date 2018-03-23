@@ -22,11 +22,17 @@ def load_url(url):
         obs.script_log(obs.LOG_WARNING, "Error opening URL '" + url + "': " + err.reason)
         
 def load_start_url():
+    global starturl
+    
     if starturl != "":
+        obs.script_log(obs.LOG_DEBUG, "Accessing Start URL")
         load_url(starturl)
 
 def load_stop_url():
+    global stopurl
+    
     if stopurl != "":
+        obs.script_log(obs.LOG_DEBUG, "Accessing Stop URL")
         load_url(stopurl)
         
 def test_start_url(props, prop):
@@ -59,6 +65,8 @@ def load_stop_url_streamcb(prop):
 def load_start_url_cb():
     global curRec
     global curStream
+    global enable_rec
+    global enable_stream
     
     is_streaming = curStream
     is_recording = curRec
@@ -73,6 +81,8 @@ def load_start_url_cb():
 def load_stop_url_cb():
     global curRec
     global curStream
+    global enable_rec
+    global enable_stream
     
     is_streaming = curStream
     is_recording = curRec
